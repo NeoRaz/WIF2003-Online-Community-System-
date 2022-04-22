@@ -11,7 +11,7 @@
 }
 
 .wrapper {
-    background-image: url(images\indexBackground.png);
+    background-image: url(/images/indexBackground.png);
     height: 90%;
 }
 
