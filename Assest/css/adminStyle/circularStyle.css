@@ -1,0 +1,139 @@
+
+.circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 80%;
+    max-height: 250px;
+}
+  
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+  
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+  
+@keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+}
+  
+.circular-chart.orange .circle {
+    stroke: #fcac29;
+}
+  
+.circular-chart.green .circle {
+    stroke: #4CC790;
+}
+  
+.circular-chart.blue .circle {
+    stroke: #3c9ee5;
+}
+  
+.circular-chart.red .circle {
+    stroke: #EA5941;
+}
+
+.circular-chart.theme .circle {
+    stroke: #0D47A1;
+}
+
+.percentage {
+    fill: #666;
+    font-family: FontAwesome;
+    font-size: 0.3em;
+    text-anchor: middle;
+}
+
+.text-green {
+    color: rgb(29, 145, 93);
+}
+
+.bg-green {
+    background: rgb(29, 145, 93);
+    color: #fff;
+}
+
+.custom-card {
+    font-weight: 500;
+}
+
+.custom-card h5, .custom-card h5 small {
+    font-weight: 500;
+    color: #5c5c5c;
+}
+
+.custom-card h5 {
+    margin-bottom: 0px !important;
+}
+
+.custom-card h2 {
+    color: #5c5c5c;
+}
+
+/* Dashboard One CSS Rules*/
+.customer-circle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #0D47A1;
+    box-shadow: 0px 0px 0px 3px #ccc;
+    border-radius: 50%;
+    margin-left: -1rem;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.customer-circle.end {
+    top: -.9rem;
+}
+
+/*Main Content */
+
+/*====== Dasboard CSS Rules =====*/
+
+/*=======Buttons Page CSS Rules === */
+.button-container {
+    line-height: 45px;
+}
+
+.button-container.lh-sm {
+    line-height: 20px !important;
+}
+
+.button-container h6, .bc-header {
+    font-size: 18px;
+    color: #5c5c5c;
+    font-weight: 500;
+}
+
+.bc-header-small {
+    font-size: 16px;
+    color: #5c5c5c;
+    font-weight: 500;
+}
+
+.button-container p, .bc-description {
+    font-weight: 500;
+    font-size: 14px;
+    color: #5c5c5c;
+}
+
+.btn-round {
+    border-radius: 50px;
+}
+
+.icon-round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+

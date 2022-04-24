@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Report</title>
+    <link rel="stylesheet" href="/Assest/css/residentStyles/bootstrap.css"></link>
+    <link rel="stylesheet" href="/Assest/css/residentStyles/covidRelated.css"></link>
+    <link rel="stylesheet" href="/Assest/css/residentStyles/general.css"></link>
+    <!-- styles/bootstrap.css -->
+
+</head>
+
+<body>
+    <div class="container-xll">
+        <nav class="navbar navbar-expand-lg navbar-dark nav-bg">
+            <div class="container-fluid">
+                <a href="/Resident/index.html" class="navbar-brand">
+                    <img id="logo" src="/Assest/img/logo.png" alt="" class="d-inline-block align-text-top" height="50">
+                </a>
+                <label for="logo" class="label">La Grande Maison</label>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarMav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarNav" class="collapse navbar-collapse nav-link-margin">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color" href="/Resident/facilities1.html">Facilities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color" href="#">Visitor's Pass</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color active" aria-current="page" href="/Resident/covidStatus.html">Covid-19 Status</a>
+                        </li>
+                    </ul>
+
+                    <div class="ms-auto">
+                        <a href="#" class="nav-link nav-link-color p-0">Log In</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <a class="nav-link nav-linkSelected-color anchor-background-color m-0" href="/Resident/CovidStatus.html">&#60;&#60; COVID-19 Status</a>
+            <div class="page-header">
+                <h1 class="text-center">Report COVID-19</h1>
+            </div>
+            <div class="mother-section">
+                <section class="Covid-form">
+                    <h5 class="">Please fill in this form to update your Covid-19 Status.</h5>
+                    <form action="">
+                        <label for="quarantineStart" class="mt-2">Start date:</label>
+                        <input type="date" id="quarantineStart" name="quarantineStart" class="form-control">
+                        <label for="quarantineEnd" class="mt-2">End date:</label>
+                        <input type="date" id="quarantineEnd" name="quarantineEnd" class="form-control">
+                        <label for="" class="mt-3 d-block">Will you stay in this condo throughout your quarantine duration?</label>
+                        <label for="yes" class="mt-2">Yes</label>
+                        <input type="radio" id="yes" name="status" value="yes">
+                        <label for="no" class="mt-2 ms-3">No</label>
+                        <input type="radio" id="no" name="status" value="no">
+                        <label for="quarantineStatus" class="mt-2 d-block">Type:</label>
+                        <select id="quarantineStatus" name="quarantineStatus" class="form-control">
+                            <option value="">Select</option>
+                            <option value="Home_Quarantine">Home Quarantine</option>
+                            <option value="Isolation_Quarantine">Isolation Quarantine</option>
+                            <option value="Hospital_Quarantine">Hospital Quarantine</option>
+                            </select>
+                        <button type="submit" class="btn btn-report btn-lg btn-block mt-4">Submit</button>
+                    </form>
+                </section>
+                <section class="info">
+                    <div class="text-center mt-5 ">
+                        <img src="/Assest/images/faceMask.png " alt="Face mask " width="120 " height="120 " class="image-fluid ">
+                    </div>
+                    <h3 class="text-center pt-3 ">Wear a mask! Save Lives</h3>
+                    <p class="text-center mt-4 ">Wear a mask</p>
+                    <p class="text-center mt-2 ">Clean your hands</p>
+                    <p class="text-center mt-2 ">Keep a safe distance</p>
+
+                </section>
+            </div>
+        </main>
+        <footer id="footer">
+            <div class="container top-padding">
+                <div class="row">
+                    <div class="col-5 address">
+                        <p class="footing-head">Address:</p>
+                        <p class="footing-normal">11 Jln PJS 11/18<br>Taman Bandar Sunway<br>Petaling Jaya<br>46150, Selangor
+                            <br>Malaysia</p>
+                    </div>
+                    <div class="col-4 contact">
+                        <p class="footing-head">Contact:</p>
+                        <p class="footing-subhead">Email:</p>
+                        <p class="footing-normal"><a href="mailto:admin@lagrandemaison.com">admin@lagrandemaison.com</a></p>
+                        <p class="footing-subhead">Phone No:</p>
+                        <p class="footing-normal">(+03) 5693-2456</p>
+                    </div>
+                    <div class="col-3 socmed">
+                        <a href="https://www.facebook.com/">
+                            <img src="/Assest/images/facebook.png" alt="" class="icon" height="40px">
+                        </a>
+                        <a href="https://www.instagram.com/">
+                            <img src="/Assest/images/instagram.png" alt="" class="icon" height="40px">
+                        </a>
+                        <a href="https://twitter.com/">
+                            <img src="/Assest/images/twitter.png" alt="" class="icon" height="40px">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/Assest/js/bootstrap.min.js"></script>
+</body>
+
+</html>
