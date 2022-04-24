@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/Assest/css/residentStyles/login.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script defer src="/Assest/js/login.js"></script>
+
+
+</head>
+
+<body>
+    <section>
+        <div class="imgBx">
+            <img src="/Assest/images/community.jpg">
+        </div>
+        <div class="contentBx">
+            <div class="formBx">
+                <h2>Login</h2>
+                <form id="form" action="">
+                    <div class="inputBx">
+                        <span>Username</span>
+                        <input id="username" name="username" type="text">
+                        <div class="error"></div>
+                    </div>
+
+                    <div class="inputBx">
+                        <span>Password</span>
+                        <input id="password" name="password" type="password">
+                        <div class="error"></div>
+                    </div>
+
+                    <div class="inpuBx dropdown">
+                        <select name="type" id="type">
+                            <option value="Resident" name="Resident">Resident</option>
+                            <option value="Admin" name="Admin">Admin</option>
+                        </select>
+                        <label class="remember"><input type="checkbox"> Remember me</label>
+                    </div>
+
+                    <br>
+                    <div class="inputBx">
+                        <input type="submit" value="Sign in" name="">
+                    </div>
+
+                </form>
+                <h3>Login with social media</h3>
+                <ul class="sci">
+                    <li><i class="uil uil-facebook-f"></i></li>
+                    <li><i class="uil uil-twitter"></i></li>
+                    <li><i class="uil uil-instagram"></i></li>
+                </ul>
+            </div>
+        </div>
+        <div id="arrow">
+            <a href="index.html"><i class="uil uil-times"></i></a>
+        </div>
+    </section>
+</body>
+
+</html>
