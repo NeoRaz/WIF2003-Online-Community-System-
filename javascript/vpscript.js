@@ -1,87 +1,100 @@
-function printError(elemId, hintMsg) {
-    document.getElementById(elemId).innerHTML = hintMsg;
+const form = document.querySelector('#create-account-form');
+const usernameInput = document.querySelector('#username');
+const emailInput = document.querySelector('#email');
+const occupationInput = document.querySelector('#occupation');
+const contactInput = document.querySelector('#contact');
+const purposeInput = document.querySelector('#purpose');
+
+
+form.addEventListener('submit', (event)=>{
+    
+    validateForm();
+    console.log(isFormValid());
+    if(isFormValid()==true){
+        form.submit();
+     }else {
+         event.preventDefault();
+     }
+
+});
+
+function isFormValid(){
+    const inputContainers = form.querySelectorAll('.input-group');
+    let result = true;
+    inputContainers.forEach((container)=>{
+        if(container.classList.contains('error')){
+            result = false;
+        }
+    });
+    return result;
 }
 
-
 function validateForm() {
-  
-    var name = document.contactForm.name.value;
-    var email = document.contactForm.email.value;
-    var mobile = document.contactForm.mobile.value;
-    var country = document.contactForm.country.value;
-    var gender = document.contactForm.gender.value;
-    var hobbies = [];
-    var checkboxes = document.getElementsByName("hobbies[]");
-    for(var i=0; i < checkboxes.length; i++) {
-        if(checkboxes[i].checked) {
-            
-            hobbies.push(checkboxes[i].value);
-        }
-    }
-	
-    var nameErr = emailErr = mobileErr = countryErr = genderErr = true;
     
-    if(name == "") {
-        printError("nameErr", "Please enter your name");
-    } else {
-        var regex = /^[a-zA-Z\s]+$/;                
-        if(regex.test(name) === false) {
-            printError("nameErr", "Please enter a valid name");
-        } else {
-            printError("nameErr", "");
-            nameErr = false;
-        }
+    if(usernameInput.value.trim()==''){
+        setError(usernameInput, 'Name can not be empty');
+    }else if(usernameInput.value.trim().length <3 || usernameInput.value.trim().length > 100){
+        setError(usernameInput, 'Name must between 3 and max 100 charecters');
+    }else {
+        setSuccess(usernameInput);
     }
     
-    if(email == "") {
-        printError("emailErr", "Please enter your email address");
-    } else {
+    if(emailInput.value.trim()==''){
+        setError(emailInput, 'Email cannot be empty');
+    }else if(isEmailValid(emailInput.value)){
+        setSuccess(emailInput);
+    }else{
+        setError(emailInput, 'Please enter a valid email');
+    }
 
-        var regex = /^\S+@\S+\.\S+$/;
-        if(regex.test(email) === false) {
-            printError("emailErr", "Please enter a valid email address");
-        } else{
-            printError("emailErr", "");
-            emailErr = false;
-        }
+    if(occupationInput.value.trim()==''){
+        setError(occupationInput, 'Occupation cannot be empty');
+    }else {
+        setSuccess(occupationInput);
     }
-    
-    if(mobile == "") {
-        printError("mobileErr", "Please enter your contact no.");
-    } else {
-        var regex = /^[0-9]\d{9}$/;
-        if(regex.test(mobile) === false) {
-            printError("mobileErr", "Please enter a valid 10 digit mobile number");
-        } else{
-            printError("mobileErr", "");
-            mobileErr = false;
-        }
-    }
-    
-    if(country == "Select") {
-        printError("countryErr", "Please select an option");
-    } else {
-        printError("countryErr", "");
-        countryErr = false;
-    }
-    
 
-    if(gender == "") {
-        printError("genderErr", "Please select your gender");
-    } else {
-        printError("genderErr", "");
-        genderErr = false;
+    if(contactInput.value.trim()==''){
+        setError(contactInput, 'Contact no. cannot be empty');
+    }else if(isContactValid(contactInput.value)){
+        setSuccess(contactInput);
+    }else {
+        setError(contactInput,"Please enter a valid 10 digit contact no.");
+    }
+
+    if(purposeInput.value.trim()==''){
+        setError(purposeInput, 'Purpose of visit cannot be empty');
+    }else if(purposeInput.value.trim().length <5 || purposeInput.value.trim().length > 100){
+        setError(purposeInput, 'Enter your purpose within 5 to 100 characters ');
+    }else {
+        setSuccess(purposeInput);
     }
     
-
-    if((nameErr || emailErr || mobileErr || countryErr || genderErr) == true) {
-       return false;
-    } else {
-
-        var dataPreview = "Congratulations! " + name + "\n" +
-                          "You have successfylly applied for a visitor's pass. Please check your email."
-       
-       
-        alert(dataPreview);
+function setError(element, errorMessage) {
+    const parent = element.parentElement;
+    if(parent.classList.contains('success')){
+        parent.classList.remove('success');
     }
-};
+    parent.classList.add('error');
+    const paragraph = parent.querySelector('p');
+    paragraph.textContent = errorMessage;
+}
+
+function setSuccess(element){
+    const parent = element.parentElement;
+    if(parent.classList.contains('error')){
+        parent.classList.remove('error');
+    }
+    parent.classList.add('success');
+}
+
+function isEmailValid(email){
+    const reg =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    return reg.test(email);
+}
+function isContactValid(contactInput){
+    var reg = /^[0-9]\d{9}$/i;
+    return reg.test(contactInput);
+}
+
+}

@@ -1,0 +1,185 @@
+
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: chocolate;
+}
+
+#create-account-form {
+    width:400px;
+    padding:20px;
+    text-transform: uppercase;
+    background-color: #fff;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin:20px 0; 
+    position:relative;
+}
+
+.input-group label {
+    display:inline-block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    display:block;
+    width:100%;
+    padding:10px;   
+}
+
+.error input {
+    border:3px red solid;
+}
+
+.success input {
+    border:3px green solid;
+}
+
+ .input-group i {
+     position:absolute;
+     right:10px;
+     top:35px;
+     visibility: hidden;
+ }
+
+
+ .success i.fa-check-circle{
+     visibility: visible;
+     color:green;
+ }
+
+ .error i.fa-exclamation-circle {
+    visibility: visible;
+    color:red;
+}
+
+
+ .input-group p {
+     font-size: 15px;
+     color:red;
+     visibility: hidden;
+ }
+
+ .error p {
+     visibility: visible;
+ }
+
+ .btn {
+     width:100%;
+     padding:10px;
+     font-size: 20px;
+     background-color: chocolate;
+     color:#fff;
+     text-transform: uppercase;
+     border:none;
+ }
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+ *{
+     font-family: Poppins;
+ }
+ 
+ .rectangle{
+     display: flex;
+     height: 20vh;
+     justify-content: center;
+     text-align: center;
+     align-items: center;
+     font-size: 35px;
+     background-color: #2B3750;
+     color: white;
+     font-weight: 700;
+ }
+ 
+   body{
+     background-image: url(/images/background.png);
+     background-repeat: no-repeat;
+     background-size:cover;
+    background-size: 45cm;
+   }
+ 
+ .park{
+   margin-top: 16px;
+ }
+ body{
+   background-image: url(/images/background.png);
+   background-repeat: no-repeat;
+   background-size:cover;
+   background-size: 45cm;
+ }
+ 
+ form {
+   width: 600px;
+   background: #fff;
+   padding: 20px 40px 40px;
+   border: 1px solid #ccc;
+   margin: 50px auto 0;
+   margin-bottom: 50px;
+   border-radius: 5px;
+ }
+ label {
+   display: block;
+   margin-bottom: 5px;
+   font-weight: 700;
+   
+ }
+ label i {
+   color: #999;
+   font-size: 80%;
+ }
+ input, select {
+   border: 1px solid #ccc;
+   padding: 10px;
+   display: block;
+   width: 100%;
+   box-sizing: border-box;
+   border-radius: 2px;
+ }
+ .row {
+   padding-bottom: 10px;
+ }
+ .form-inline {
+   border: 1px solid #ccc;
+   padding: 8px 10px 4px;
+   border-radius: 2px;
+ }
+ .form-inline label, .form-inline input {
+   display: inline-block;
+   width: auto;
+   padding-right: 15px;
+ }
+ .error {
+   color: red;
+   font-size: 90%;
+ }
+ input[type="submit"] {
+   font-size: 110%;
+   font-weight: 100;
+   background: #fcac29;
+   color: #fff;
+   margin-top: 10px;
+   cursor: pointer;
+ }
+ input[type="submit"]:hover {
+   background: #fed188;
+ }
+ textarea{
+   width: 500px;
+   height: 100px;
+ }
+
+
+
+
+
+
+
+

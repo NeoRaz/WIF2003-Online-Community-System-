@@ -16,16 +16,6 @@
     font-weight: 700;
 }
 
-  body{
-    background-image: url(/images/background.png);
-    background-repeat: no-repeat;
-    background-size:cover;
-   background-size: 45cm;
-  }
-
-.park{
-  margin-top: 16px;
-}
 body{
   background-image: url(/images/background.png);
   background-repeat: no-repeat;
@@ -63,18 +53,14 @@ input, select {
 .row {
   padding-bottom: 10px;
 }
-.form-inline {
-  border: 1px solid #ccc;
-  padding: 8px 10px 4px;
-  border-radius: 2px;
-}
+
 .form-inline label, .form-inline input {
   display: inline-block;
   width: auto;
   padding-right: 15px;
 }
 .error {
-  color: red;
+  color: black;
   font-size: 90%;
 }
 input[type="submit"] {
@@ -88,7 +74,61 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background: #fed188;
 }
-textarea{
-  width: 500px;
+.textarea{
+  width: 550px;
   height: 100px;
+  padding: 10px;
+}
+.error input {
+  border:3px red solid;
+}
+
+.success input {
+  border:3px green solid;
+}
+.input-group {
+  margin:-10px; 
+  position:relative;
+}
+.input-group i {
+   position:absolute;
+   right:10px;
+   top:35px;
+   visibility: hidden;
+}
+
+.success i.fa-check-circle{
+   visibility: visible;
+   color:green;
+}
+
+.error i.fa-exclamation-circle {
+  visibility: visible;
+  color:red;
+}
+
+.input-group p {
+   font-size: 15px;
+   color:red;
+   visibility: hidden;
+}
+
+.error p {
+   visibility: visible;
+}
+.btnsubmit {
+  width:100%;
+  padding:10px;
+  font-size: 20px;
+  background-color: #fcac29;
+  color:white;
+  border:none;
+}
+.btnsubmit:hover{
+  background-color: #fed188;
+}
+
+.form-inline{
+  padding-right: 300px;
+  padding-top: 10px;
 }
