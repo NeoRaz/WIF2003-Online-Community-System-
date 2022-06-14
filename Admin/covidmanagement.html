@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!--Meta Tags-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+        
+        <!--Bootstrap CSS-->
+        <link rel="stylesheet" href="/Assest/css/adminStyle/bootstrap.min.css">
+        <!--Custom CSS-->
+        <link rel="stylesheet" href="/Assest/css/adminStyle/custom.css">
+        <link rel="stylesheet" href="/Assest/css/adminStyle/quicksand.css">
+        <!--Font Awesome CSS-->
+        <link rel="stylesheet" href="/Assest/css/adminStyle/fontawesome.css">
+        <!--Font Awesome-->
+        <link rel="stylesheet" href="/Assest/css/adminStyle/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/Assest/css/adminStyle/fontawesome.css">
+        <script src="https://kit.fontawesome.com/aba25813e3.js" crossorigin="anonymous"></script>
+        <!--Chartist CSS-->
+        <link rel="stylesheet" href="/Assest/css/adminStyle/chartist.min.css">
+        <!--Nice select -->
+        <link rel="stylesheet" href="/Assest/css/adminStyle/nice-select.css">
+        <!--Map-->
+        <link rel="stylesheet" href="/Assest/css/adminStyle/jquery-jvectormap-2.0.2.css">
+        <!-- Circle style -->
+         <link rel="stylesheet" href="/Assest/css/adminStyle/circularStyle.css">
+        
+        <!--Webpage Name-->
+        <title>Covid Analytics</title>
+    </head>
+
+    <body>
+        <!--Page Loader-->
+        <div class="loader-wrapper">
+            <div class="loader-circle">
+                <div class="loader-wave"></div>
+            </div>
+        </div>
+        <!--Page Loader-->
+
+        <!--Page Wrapper-->
+        <div class="container-fluid">
+            
+            <!--Header-->
+            <div class="row header shadow-sm fixed-top">
+
+                <!--Logo-->
+                <div class="col-sm-3 pl-0 text-center header-logo">
+                    <div class="bg-theme mr-3 pt-3 pb-2 mb-0">
+                         <h3 class="logo"><img src="/Assest/img/logo.png" class="mb-2" height="20"> Admin<span class="small"> Board</span></h3>
+                    </div>
+                 </div>
+                 <!--Logo-->
+
+                 <!--Header Menu-->
+                 <div class="col-sm-9 header-menu pt-2 pb-0">
+                    <div class="row">
+
+                        <!--Sidebar Toggle-->
+                        <div class="col-sm-4 col-8 pl-0">
+                            <span class="menu-icon" onclick="toggle_sidebar()">
+                                <span id="sidebar-toggle-btn"></span>
+                            </span>
+                        </div>
+                        <!--Sidebar Toggle-->
+                        
+                        <!--Logout Button-->
+                        <div class="col-sm-8 col-4 text-right flex-header-menu justify-content-end">
+                            <div class="menu-icon justify-content-end">
+                                <a class="" href="/Resident/index.html" role="button">
+                                    <i class="fa fa-sign-out"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!--Logout Button-->
+
+                    </div>
+                 </div>
+                 <!--Header Menu-->
+
+            </div>
+            <!--Header-->
+
+  
+            <!--Main Content-->
+            <div class="row main-content">
+
+                <!--Sidebar-->
+                <div class="col-sm-3 col-xs-6 sidebar pl-0">
+                    <div class="inner-sidebar mr-3">
+                        
+                        <!--Admin Name-->
+                        <div class="avatar text-center pt-5">
+                            <p><strong>Jonathan Clarke</strong></p>
+                            <span class="text-warning small"><strong>Admin</strong></span>
+                        </div>
+                        <!--Admin Name-->
+
+                        <!--Sidebar Navigation Menu-->
+                        <ul class="sidebar-menu mt-4 mb-4">
+                            <li class="parent">
+                                <a href="/Admin/mainboard.html" class=""><i class="fa fa-angle-right mr-2"></i>
+                                    <span class="none">Main Board</span>
+                                </a>
+                            </li>
+                            <li class="parent">
+                                <a href="/Admin/covidmanagement.html" class=""><i class="fa fa-angle-right mr-2"></i>
+                                    <span class="none">Covid Analytics</span>
+                                </a>
+                            </li>
+                            <li class="parent">
+                                <a href="/Admin/residentlist.html" class=""><i class="fa fa-angle-right mr-2"></i>
+                                    <span class="none">Manage Residents</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--Sidebar Navigation Menu-->
+
+                    </div>
+                </div>
+                <!--Sidebar-->
+            <!--Content right-->
+            <div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+                <h5 class="mb-3" ><strong>Covid Analysis</strong></h5>
+                
+                <!--Dashboard widget-->
+                                <div class="mt-1 mb-3 button-container">
+                    <div class="row pl-0">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-3">
+                            <div class="bg-white border shadow">
+                                <div class="p-2 text-center">
+                                    <h5 class="mb-0 mt-2 text-theme"><small><strong>Recovering</strong></small></h5>
+                                    <h1>210</h1>
+                                    <a href="#editStatisticModal" class="edit" data-toggle="modal"><i style='font-size:24px' class='fas' title="Edit">&#xf044;</i></a>
+                                </div>
+                                <div class="align-bottom">
+                                    <span id="incomeBar"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-3">
+                            <div class="bg-white border shadow">
+                                <div class="p-2 text-center">
+                                    <h5 class="mb-0 mt-2 text-danger"><small><strong>Heavy</strong></small></h5>
+                                    <h1>48</h1>
+                                    <a href="#editStatisticModal" class="edit" data-toggle="modal"><i style='font-size:24px' class='fas' title="Edit">&#xf044;</i></a>
+                                </div>
+                                <div class="align-bottom">
+                                    <span id="expensesBar"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-3">
+                            <div class="bg-white border shadow">
+                                <div class="p-2 text-center">
+                                    <h5 class="mb-0 mt-2 text-green"><small><strong>Good</strong></small></h5>
+                                    <h1>125</h1>
+                                    <a href="#editStatisticModal" class="edit" data-toggle="modal"><i style='font-size:24px' class='fas' title="Edit">&#xf044;</i></a>
+                                </div>
+                                <div class="align-bottom">
+                                    <span id="profitBar"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/Dashboard widget-->
+                <!-- Edit Modal HTML -->
+                <div id="editStatisticModal" class="modal fade">
+	                <div class="modal-dialog">
+		                <div class="modal-content">
+			                <form>
+				                <div class="modal-header">						
+					                <h4 class="modal-title">Edit Statistic</h4>
+					                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				                </div>
+				                <div class="modal-body">					
+					                <div class="form-group">
+						                <label>Number</label>
+						                <input type="text" class="form-control" required>
+					                </div>	
+				                </div>
+				                <div class="modal-footer">
+					                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					                <input type="submit" class="btn btn-info" value="Save">
+				                </div>
+			                </form>
+		                </div>
+	                </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-sm-12 col-md-8">
+                        <!--Analytics-->
+                        <div class="mt-1 mb-3 p-3 button-container bg-white shadow-sm border">
+                            <h6 class="mb-3">Analytics</h6><hr>
+                            
+                            <canvas id="orderRevenue" class="orderRevenue" height="120px"></canvas>
+                            
+                        </div>
+                        <!--/Analytics-->
+
+                    </div>
+                    
+                    
+                    <div class="col-sm-12 col-md-4">
+                        <!--Custom Sales small chart-->
+                        <div class="mt-1 mb-3 button-container bg-white border shadow-sm lh-sm">
+                            <div class="fb-follow-widget">
+                                <div class="fb-widget-top bg-theme text-white">
+                                    <div class="row p-3 fb-widget-top-desc">
+                                        <div class="col-sm-6 col-6">
+                                            <h5>Report</h5>
+                                            <small>2022.04.15</small>
+                                        </div>
+                                        <div class="col-sm-6 col-6 text-right">
+                                            <h5><i class="fa fa-caret-up"></i> 260</h5>
+                                            <small>2022.04.16</small>
+                                        </div>
+                                    </div>
+                                    <div class="ct-chart" id="areaChartFb" style="width: 100%; height:100px"></div>
+                                </div>
+                                <div class="fb-widget-bottom">
+                                    <div class="row p-3 fb-widget-bottom">
+                                        <div class="col-sm-6 col-6 fb-wb-inner">
+                                           <p> <small><i class="fa fa-circle text-danger"></i> 32% condition report</small></p>
+                                            <p><small><i class="fa fa-circle text-theme"></i> 68% normal report</small></p>
+                                            <h5>Total : <span class="text-theme">320</span></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--/Custom Sales small chart-->
+                    </div>
+                </div>
+
+                <!--Custom cards section-->
+                <div class="row">
+                    <!--Visitors statistics card-->
+                    <div class="col-sm-4 custom-card">
+                        <div class="mt-1 mb-3 button-container p-3 bg-white border shadow lh-sm">
+                            <div class="text-center mb-3">
+                                <h5 class="mb-0 mt-2"><small>Visitors</small></h5>
+                                <h2>2,367</h2>
+                            </div>
+
+                            <svg viewBox="0 0 36 25" class="circular-chart blue">
+                                <path class="circle-bg"
+                                d="M18 2.0845
+                                    a 7.9567 7.9567 0 0 1 0 15.9134
+                                    a 7.9567 7.9567 0 0 1 0 -15.9134"
+                                />
+                                <path class="circle"
+                                stroke-dasharray="40, 60"
+                                d="M18 2.0845
+                                    a 7.9567 7.9567 0 0 1 0 15.9134
+                                    a 7.9567 7.9567 0 0 1 0 -15.9134"
+                                />
+                                <text x="18" y="12.00" class="percentage">&#xf0c0;</text>
+                            </svg>
+                            <div class="row mx-2">
+                                <div class="col-sm-6 col-12">
+                                    <h5>1,507</h5>
+                                    <span class="text-muted small"><strong>Male visitors</strong></span>
+                                </div>
+                                <div class="col-sm-6 col-12 text-right">
+                                    <h5>854</h5>
+                                    <span class="text-muted small"><strong>Female visitors</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Visitors statistics card-->
+
+                    <!--Report card-->
+                    <div class="col-sm-4 custom-card">
+                        <div class="mt-1 mb-3 button-container p-3 bg-white border shadow lh-sm">
+                            <div class="text-center mb-3">
+                                <h5 class="mb-0 mt-2"><small>Report</small></h5>
+                                <h2>320</h2>
+                                <!--<a href="#editReportModal" class="edit" data-toggle="modal"><i style='font-size:24px' class='fas' title="Edit">&#xf044;</i></a> -->
+                            </div>
+                            
+                            <svg viewBox="0 0 36 25" class="circular-chart red">
+                                <path class="circle-bg"
+                                d="M18 2.0845
+                                    a 7.9567 7.9567 0 0 1 0 15.9134
+                                    a 7.9567 7.9567 0 0 1 0 -15.9134"
+                                />
+                                <path class="circle"
+                                stroke-dasharray="40, 60"
+                                d="M18 2.0845
+                                    a 7.9567 7.9567 0 0 1 0 15.9134
+                                    a 7.9567 7.9567 0 0 1 0 -15.9134"
+                                />
+                                <text x="18" y="12.00" class="percentage">&#xf1ed;</text>
+                            </svg>
+
+                            <div class="row mx-2">
+                                <div class="col-sm-6 col-12">
+                                    <h5>300</h5>
+                                    <span class="text-muted small"><strong>Report done</strong></span>
+                                </div>
+                                <div class="col-sm-6 col-12 text-right">
+                                    <h5>20</h5>
+                                    <span class="text-muted small"><strong>Report due</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Report card-->
+                </div>
+                <!--Custom cards Section-->
+
+                <!-- Edit Report Modal HTML: KIV -->
+                <div id="editReportModal" class="modal fade">
+	                <div class="modal-dialog">
+		                <div class="modal-content">
+			                <form>
+				                <div class="modal-header">						
+					                <h4 class="modal-title">Edit Report</h4>
+					                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				                </div>
+				                <div class="modal-body">					
+					                <div class="form-group">
+						                <label>Number</label>
+						                <input type="text" class="form-control" required>
+					                </div>	
+				                </div>
+				                <div class="modal-footer">
+					                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					                <input type="submit" class="btn btn-info" value="Save">
+				                </div>
+			                </form>
+		                </div>
+	                </div>
+                </div>
+
+                <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
+                    <!--User Listing-->
+                    <div class="product-list">
+                        <div class="row border-bottom mb-4">
+                            <div class="col-sm-8 pt-2"><h6 class="mb-4 bc-header">User listing</h6></div>
+                            <div class="col-sm-4 text-right pb-3">
+                                <button type="button" class="btn btn-danger icon-round shadow pull-right">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <div class="pull-right mr-3 btn-order-bulk">
+                                    <select class="shadow bg-secondary bulk-actions">
+                                        <option data-display="<span class='text-white'><b>Bulk status</b></span>">Status options</option>
+                                        <option value="1">Recovering</option>
+                                        <option value="2">Heavy</option>
+                                        <option value="4">Good</option>
+                                    </select>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="table-responsive product-list">
+                            <table class="table table-bordered table-striped mt-0" id="productList">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px;" class="p-0 pr-4 align-middle">
+                                            <div class="form-check-box cta">
+                                                <span class="color1">
+                                                    <input type="checkbox" id="orderAll">
+                                                    <label for="orderAll"></label>
+                                                </span>
+                                            </div>
+                                        </th>
+                                        <th>User ID</th>
+                                        <th>User</th>
+                                        <th>Status</th>
+                                        <th>Quarantine Start Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 10px;" class="p-0 pr-1 align-middle">
+                                            <div class="form-check-box cta">
+                                                <span class="color1">
+                                                    <input type="checkbox" id="order1">
+                                                    <label for="order1"></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>User#13</td>
+                                        <td class="align-middle">
+                                            Stephanie Cott
+                                        </td>
+                                        <td class="align-middle"><span class="badge badge-warning">Recovering</span></td>
+                                        <td>15/09/2021</td>
+                                        <td class="align-middle text-center">
+                                            <button class="btn btn-theme" data-toggle="modal" data-target="#orderUpdate"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-success" data-toggle="modal" data-target="#orderInfo">Confirm</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 10px;" class="p-0 pr-1 align-middle">
+                                            <div class="form-check-box cta">
+                                                <span class="color1">
+                                                    <input type="checkbox" id="order2">
+                                                    <label for="order2"></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>User#14</td>
+                                        <td class="align-middle">
+                                            John Smith
+                                        </td>
+                                        <td class="align-middle"><span class="badge badge-danger">Heavy</span></td>
+                                   
+                                        <td>15/02/2022</td>
+                                        <td class="align-middle text-center">
+                                            <button class="btn btn-theme" data-toggle="modal" data-target="#orderUpdate"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-success" data-toggle="modal" data-target="#orderInfo">Confirm</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 10px;" class="p-0 pr-1 align-middle">
+                                            <div class="form-check-box cta">
+                                                <span class="color1">
+                                                    <input type="checkbox" id="order3">
+                                                    <label for="order3"></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>User#15</td>
+                                        <td class="align-middle">
+                                            Jackson
+                                        </td>
+                                        <td class="align-middle"><span class="badge badge-success">Good</span></td>
+                                        <td>15/04/2022</td>
+                                        <td class="align-middle text-center">
+                                            <button class="btn btn-theme" data-toggle="modal" data-target="#orderUpdate"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-success" data-toggle="modal" data-target="#orderInfo">Confirm</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 10px;" class="p-0 pr-1 align-middle">
+                                            <div class="form-check-box cta">
+                                                <span class="color1">
+                                                    <input type="checkbox" id="order4">
+                                                    <label for="order4"></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>User#16</td>
+                                        <td class="align-middle">
+                                            Alan
+                                        </td>
+                                        <td class="align-middle"><span class="badge badge-warning">Recovering</span></td>
+                                        <td>15/09/2021</td>
+                                        <td class="align-middle text-center">
+                                            <button class="btn btn-theme" data-toggle="modal" data-target="#orderUpdate"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-success" data-toggle="modal" data-target="#orderInfo">Confirm</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 10px;" class="p-0 pr-1 align-middle">
+                                            <div class="form-check-box cta">
+                                                <span class="color1">
+                                                    <input type="checkbox" id="order5">
+                                                    <label for="order5"></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>User#17</td>
+                                        <td class="align-middle">
+                                            Joy
+                                        </td>
+                                        <td class="align-middle"><span class="badge badge-danger">Heavy</span></td>
+                                        <td>15/09/2022</td>
+                                        <td class="align-middle text-center">
+                                            <button class="btn btn-theme" data-toggle="modal" data-target="#orderUpdate"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-success" data-toggle="modal" data-target="#orderInfo">Confirm</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 10px;" class="p-0 pr-1 align-middle">
+                                            <div class="form-check-box cta">
+                                                <span class="color1">
+                                                    <input type="checkbox" id="order6">
+                                                    <label for="order6"></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>User#18</td>
+                                        <td class="align-middle">
+                                           Ama
+                                        </td>
+                                        <td class="align-middle"><span class="badge badge-success">Good</span></td>
+                            
+                                        <td>15/02/2022</td>
+                                        <td class="align-middle text-center">
+                                            <button class="btn btn-theme" data-toggle="modal" data-target="#orderUpdate"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-success" data-toggle="modal" data-target="#orderInfo">Confirm</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 10px;" class="p-0 pr-1 align-middle">
+                                            <div class="form-check-box cta">
+                                                <span class="color1">
+                                                    <input type="checkbox" id="order7">
+                                                    <label for="order7"></label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>User#19</td>
+                                        <td class="align-middle">
+                                            Neat
+                                        </td>
+                                        <td class="align-middle"><span class="badge badge-warning">Recovering</span></td>
+                                        <td>15/04/2022</td>
+                                        <td class="align-middle text-center">
+                                            <button class="btn btn-theme" data-toggle="modal" data-target="#orderUpdate"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-success" data-toggle="modal" data-target="#orderInfo">Confirm</button>
+                                        </td>
+                                    </tr>
+                            </table>
+
+                            <div class="text-right">
+                                <button class="btn btn-outline-theme"><i class="fa fa-eye"></i> View full List</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/User Listing-->
+
+                    <!--User Confirm Modal-->
+                    <div class="modal fade" id="orderInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <form>
+                                    <div class="modal-header">						
+                                        <h4 class="modal-title">Confirm</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">					
+                                        <div class="form-group">
+                                            <h5>Are you sure?</h5>
+                                        </div>	
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                        <input type="submit" class="btn btn-info" value="Save">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- User Confirm Modal-->
+
+                    <!--User Update Modal-->
+                    <div class="modal fade" id="orderUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">User details update</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th class="order-qty-head">Covid-Status</th>
+                                                <th class="order-qty-head">Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="align-small">01</td>
+                                                <td class="text-center align-middle"><input type="text" value="Good" class="order-qty"></td>
+                                                <td class="text-center align-middle"><input type="text" value="17/04/2022" class="order-qty"></td>   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="align-small">02</td>
+                                                <td class="text-center align-middle"><input type="text" value="Good" class="order-qty"></td>
+                                                <td class="text-center align-middle"><input type="text" value="16/04/2022" class="order-qty"></td>
+                                                   
+                                                </td>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                    <input type="submit" class="btn btn-info" value="Save">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--User Update Modal-->
+                </div>
+
+
+   
+                    <!-- Contact Modal HTML -->
+                    <div id="contactModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form>
+                                    <div class="modal-header">						
+                                        <h4 class="modal-title">Contact Us</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">					
+                                        <p><strong>Phone No:</strong></p>
+                                        <p>(+03) 5693-2456</p><br>
+                                        <p><strong>Email:</strong></p>
+                                        <p>admin@lagrandemaison.com</p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <!--Footer-->
+                    <div class="row mt-5 mb-4 footer">
+                        <div class="col-sm-8">
+                            <span>&copy; All rights reserved 2022 designed by <strong>La Grande Maison</strong></span>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <a href="#contactModal" class="ml-2" data-toggle="modal">Contact Us</a>
+                        </div>
+                    </div>
+                    <!--Footer-->
+                
+                </div>
+                <!--Content-->
+
+            </div>
+            <!--Main Content-->
+
+        </div>
+        <!--Page Wrapper-->
+
+        <!-- Page JavaScript Files-->
+        <script src="/Assest/js/jquery.min.js"></script>
+        <!--Popper JS-->
+        <script src="/Assest/js/popper.min.js"></script>
+        <!--Bootstrap-->
+        <script src="/Assest/js/bootstrap.min.js"></script>
+        <!--Custom-->
+        <script src="/Assest/js/custom.js"></script>
+        <!--Chart JS-->
+        <script src="/Assest/js/chart.min.js"></script>
+        <!--Chartist JS-->
+        <script src="/Assest/js/chartist.min.js"></script>
+        <script src="/Assest/js/demo.js"></script>
+        <script src="/Assest/js/chartist-data.js"></script>
+        <!--Chart JS-->
+        <script src="/Assest/js/charts/chart.min.js"></script>
+        <!--Chartist JS-->
+        <script src="/Assest/js/charts/chartist.min.js"></script>
+        <script src="/Assest/js/charts/chartist-data.js"></script>
+        <script src="/Assest/js/charts/demo.js"></script>
+        <!-- Sparkline -->
+        <script src="/Assest/js/charts/sparkline.min.js"></script>
+        <!--Flot.JS-->
+        <script src="/Assest/js/charts/jquery.flot.min.js"></script>
+        <script src="/Assest/js/charts/jquery.flot.pie.min.js"></script>
+        <script src="/Assest/js/charts/jquery.flot.categories.min.js"></script>
+        <script src="/Assest/js/charts/jquery.flot.stack.min.js"></script>
+        <!--Custom Js Script-->
+        <script src="/Assest/js/custom.js"></script>
+         <!--Nice select-->
+        <script src="/Assest/js/jquery.nice-select.min.js"></script>
+        <!--Progressbar JS-->
+        <script src="/Assest/js/progressbar.min.js"></script>
+        <!--Sweet alert JS-->
+        <script src="/Assest/js/sweetalert.js"></script>
+    </body>
+
+</html>

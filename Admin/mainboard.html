@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!--Meta Tags-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1 shrink-to-fit=no"
+    />
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="/Assest/css/adminStyle/bootstrap.min.css" />
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="/Assest/css/adminStyle/custom.css" />
+    <link rel="stylesheet" href="/Assest/css/adminStyle/quicksand.css" />
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="/Assest/css/adminStyle/fontawesome-all.min.css"
+    />
+    <link rel="stylesheet" href="/Assest/css/adminStyle/fontawesome.css" />
+    <script
+      src="https://kit.fontawesome.com/aba25813e3.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--Chartist CSS-->
+    <link rel="stylesheet" href="/Assest/css/adminStyle/chartist.min.css" />
+
+    <!--Webpage Name-->
+    <title>Admin Board</title>
+  </head>
+
+  <body>
+    <!--Page Loader-->
+    <div class="loader-wrapper">
+      <div class="loader-circle">
+        <div class="loader-wave"></div>
+      </div>
+    </div>
+    <!--Page Loader-->
+
+    <!--Page Wrapper-->
+    <div class="container-fluid">
+      <!--Header-->
+      <div class="row header shadow-sm fixed-top">
+        <!--Logo-->
+        <div class="col-sm-3 pl-0 text-center header-logo">
+          <div class="bg-theme mr-3 pt-3 pb-2 mb-0">
+            <h3 class="logo">
+              <img src="/Assest/img/logo.png" class="mb-2" height="20" />
+              Admin<span class="small"> Board</span>
+            </h3>
+          </div>
+        </div>
+        <!--Logo-->
+
+        <!--Header Menu-->
+        <div class="col-sm-9 header-menu pt-2 pb-0">
+          <div class="row">
+            <!--Sidebar Toggle-->
+            <div class="col-sm-4 col-8 pl-0">
+              <span class="menu-icon" onclick="toggle_sidebar()">
+                <span id="sidebar-toggle-btn"></span>
+              </span>
+            </div>
+            <!--Sidebar Toggle-->
+
+            <!--Logout Button-->
+            <div
+              class="col-sm-8 col-4 text-right flex-header-menu justify-content-end"
+            >
+              <div class="menu-icon justify-content-end">
+                <a class="" href="/Resident/index.html" role="button">
+                  <i class="fa fa-sign-out"></i>
+                </a>
+              </div>
+            </div>
+            <!--Logout Button-->
+          </div>
+        </div>
+        <!--Header Menu-->
+      </div>
+      <!--Header-->
+
+      <!--Main Content-->
+      <div class="row main-content">
+        <!--Sidebar-->
+        <div class="col-sm-3 col-xs-6 sidebar pl-0">
+          <div class="inner-sidebar mr-3">
+            <!--Admin Name-->
+            <div class="avatar text-center pt-5">
+              <p><strong>Jonathan Clarke</strong></p>
+              <span class="text-warning small"><strong>Admin</strong></span>
+            </div>
+            <!--Admin Name-->
+
+            <!--Sidebar Navigation Menu-->
+            <ul class="sidebar-menu mt-4 mb-4">
+              <li class="parent">
+                <a href="/Admin/mainboard.html" class=""
+                  ><i class="fa fa-angle-right mr-2"></i>
+                  <span class="none">Main Board</span>
+                </a>
+              </li>
+              <li class="parent">
+                <a href="/Admin/covidmanagement.html" class=""
+                  ><i class="fa fa-angle-right mr-2"></i>
+                  <span class="none">Covid Analytics</span>
+                </a>
+              </li>
+              <li class="parent">
+                <a href="/Admin/residentlist.html" class=""
+                  ><i class="fa fa-angle-right mr-2"></i>
+                  <span class="none">Manage Residents</span>
+                </a>
+              </li>
+            </ul>
+            <!--Sidebar Navigation Menu-->
+          </div>
+        </div>
+        <!--Sidebar-->
+
+        <!--Content-->
+        <div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+          <h5 class="mb-3"><strong>Dashboard</strong></h5>
+
+          <!--Counters-->
+          <div class="mt-1 mb-3 button-container">
+            <div class="row pl-0">
+              <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-3">
+                <div class="bg-white border shadow">
+                  <div class="media p-4">
+                    <div
+                      class="align-self-center mr-3 rounded-circle notify-icon bg-theme"
+                    >
+                      <i class="fa fa-users"></i>
+                    </div>
+                    <div class="media-body pl-2">
+                      <h3 class="mt-0 mb-0"><strong>50</strong></h3>
+                      <p>
+                        <small class="text-muted bc-description"
+                          >Residents</small
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-3">
+                <div class="bg-white border shadow">
+                  <div class="media p-4">
+                    <div
+                      class="align-self-center mr-3 rounded-circle notify-icon bg-danger"
+                    >
+                      <i class="fa fa-user"></i>
+                    </div>
+                    <div class="media-body pl-2">
+                      <h3 class="mt-0 mb-0"><strong>20</strong></h3>
+                      <p>
+                        <small class="text-muted bc-description"
+                          >Visitors</small
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-3">
+                <div class="bg-theme border shadow">
+                  <div class="media p-4">
+                    <div
+                      class="align-self-center mr-3 rounded-circle notify-icon bg-white"
+                    >
+                      <i class="fa fa-id-badge text-theme"></i>
+                    </div>
+                    <div class="media-body pl-2">
+                      <h3 class="mt-0 mb-0"><strong>30</strong></h3>
+                      <p>
+                        <small class="bc-description text-white"
+                          >Personnel</small
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Counters-->
+
+          <!--Chart Section-->
+          <div class="mt-3 mb-3 p-3 button-container bg-white shadow-sm border">
+            <h6>Resident Overview</h6>
+            <hr />
+
+            <div class="row mb-3">
+              <div class="col-sm-4 ol-12">
+                <h1 class="text-success">80%</h1>
+                <h5>Occupancy Rate</h5>
+              </div>
+              <div class="col-sm-4 ol-12 text-center">
+                <h1 class="text-theme">13000</h1>
+                <h5>Monthly Profit</h5>
+              </div>
+              <div class="col-sm-4 ol-12 text-right">
+                <h1 class="text-danger">10%</h1>
+                <h5>Turnover Rate</h5>
+              </div>
+            </div>
+
+            <canvas
+              id="orderRevenue"
+              class="orderRevenue pt-1"
+              height="100px"
+            ></canvas>
+          </div>
+          <!--Chart Section-->
+
+          <!--Other Content-->
+          <div class="row mt-3">
+            <div class="col-sm-6">
+              <!--Revenue Graph-->
+              <div
+                class="mt-1 mb-3 button-container bg-white border shadow-sm p-3"
+              >
+                <h6 class="mb-3">Revenue vs Cost Graph</h6>
+                <hr />
+
+                <div
+                  class="ct-chart"
+                  id="costRevenue"
+                  style="height: 350px"
+                ></div>
+              </div>
+              <!--Revenue Graph-->
+            </div>
+
+            <div class="col-sm-6">
+              <!--Tasks List-->
+              <div
+                class="mt-1 mb-3 button-container bg-white border shadow-sm p-3 pb-0 tasklist"
+              >
+                <h6 class="mb-3">
+                  Tasks
+                  <a href="#addTaskModal" class="add" data-toggle="modal"
+                    ><i class="fa fa-plus" data-toggle="tooltip" title="Add"></i
+                  ></a>
+                  <a href="#deleteTaskModal" class="delete" data-toggle="modal"
+                    ><i
+                      class="fa fa-minus"
+                      data-toggle="tooltip"
+                      title="Delete"
+                    ></i
+                  ></a>
+                </h6>
+
+                <hr class="mb-0" />
+
+                <div class="custom-control custom-checkbox search-single mt-1">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="task1"
+                  />
+                  <label class="custom-control-label pl-2 mb-0" for="task1"
+                    >Meeting for administrators</label
+                  >
+                  <p class="pl-2">Meeting Room 2, Floor 5 at 5/5/2022 10am.</p>
+                </div>
+                <div class="dropdown-divider mt-3 mb-0"></div>
+                <div class="custom-control custom-checkbox search-single mt-1">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="task2"
+                  />
+                  <label class="custom-control-label pl-2 mb-0" for="task2"
+                    >Meeting for administrators</label
+                  >
+                  <p class="pl-2">Meeting Room 2, Floor 5 at 5/5/2022 10am.</p>
+                </div>
+                <div class="dropdown-divider mt-3 mb-0"></div>
+                <div class="custom-control custom-checkbox search-single mt-1">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="task3"
+                  />
+                  <label class="custom-control-label pl-2 mb-0" for="task3"
+                    >Meeting for administrators</label
+                  >
+                  <p class="pl-2">Meeting Room 2, Floor 5 at 5/5/2022 10am.</p>
+                </div>
+                <div class="dropdown-divider mt-3 mb-0"></div>
+                <div class="custom-control custom-checkbox search-single mt-1">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="task4"
+                  />
+                  <label class="custom-control-label pl-2 mb-0" for="task4"
+                    >Meeting for administrators</label
+                  >
+                  <p class="pl-2">Meeting Room 2, Floor 5 at 5/5/2022 10am.</p>
+                </div>
+                <div class="dropdown-divider mt-3 mb-0"></div>
+                <div class="custom-control custom-checkbox search-single mt-1">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="task5"
+                  />
+                  <label class="custom-control-label pl-2 mb-0" for="task5"
+                    >Meeting for administrators</label
+                  >
+                  <p class="pl-2">Meeting Room 2, Floor 5 at 5/5/2022 10am.</p>
+                </div>
+                <div class="dropdown-divider mt-3 mb-0"></div>
+                <div class="custom-control custom-checkbox search-single mt-1">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="task6"
+                  />
+                  <label class="custom-control-label pl-2 mb-0" for="task6"
+                    >Meeting for administrators</label
+                  >
+                  <p class="pl-2">Meeting Room 2, Floor 5 at 5/5/2022 10am.</p>
+                </div>
+              </div>
+              <!--Tasks List-->
+            </div>
+          </div>
+          <!--Other Content-->
+
+          <!-- Add Modal HTML -->
+          <div id="addTaskModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form>
+                  <div class="modal-header">
+                    <h4 class="modal-title">Add Task</h4>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-hidden="true"
+                    >
+                      &times;
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <label>Title</label>
+                      <input type="text" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                      <label>Description</label>
+                      <textarea class="form-control" required></textarea>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <input
+                      type="button"
+                      class="btn btn-default"
+                      data-dismiss="modal"
+                      value="Cancel"
+                    />
+                    <input type="submit" class="btn btn-success" value="Add" />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- Delete Modal HTML -->
+          <div id="deleteTaskModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form>
+                  <div class="modal-header">
+                    <h4 class="modal-title">Delete Task</h4>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-hidden="true"
+                    >
+                      &times;
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Are you sure you want to delete the record(s)?</p>
+                    <p class="text-danger">
+                      <small>This action cannot be undone.</small>
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <input
+                      type="button"
+                      class="btn btn-default"
+                      data-dismiss="modal"
+                      value="Cancel"
+                    />
+                    <input
+                      type="submit"
+                      class="btn btn-danger"
+                      value="Delete"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- Contact Modal HTML -->
+          <div id="contactModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form>
+                  <div class="modal-header">
+                    <h4 class="modal-title">Contact Us</h4>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-hidden="true"
+                    >
+                      &times;
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p><strong>Phone No:</strong></p>
+                    <p>(+03) 5693-2456</p>
+                    <br />
+                    <p><strong>Email:</strong></p>
+                    <p>admin@lagrandemaison.com</p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!--Footer-->
+          <div class="row mt-5 mb-4 footer">
+            <div class="col-sm-8">
+              <span
+                >&copy; All rights reserved 2022 designed by
+                <strong>La Grande Maison</strong></span
+              >
+            </div>
+            <div class="col-sm-4 text-right">
+              <a href="#contactModal" class="ml-2" data-toggle="modal"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+          <!--Footer-->
+        </div>
+        <!--Content-->
+      </div>
+      <!--Main Content-->
+    </div>
+    <!--Page Wrapper-->
+
+    <!-- Page JavaScript Files-->
+    <script src="/Assest/js/jquery.min.js"></script>
+    <!--Popper JS-->
+    <script src="/Assest/js/popper.min.js"></script>
+    <!--Bootstrap-->
+    <script src="/Assest/js/bootstrap.min.js"></script>
+    <!--Custom-->
+    <script src="/Assest/js/custom.js"></script>
+    <!--Chart JS-->
+    <script src="/Assest/js/chart.min.js"></script>
+    <!--Chartist JS-->
+    <script src="/Assest/js/chartist.min.js"></script>
+    <script src="/Assest/js/demo.js"></script>
+    <script src="/Assest/js/chartist-data.js"></script>
+  </body>
+</html>
